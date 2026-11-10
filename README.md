@@ -39,8 +39,9 @@ final reply = await writeAndFormat.reply(input, journeyPath);
   records it, and renders `Done` with the definition's `Output`. An input
   the definition refuses, and a `Failed`, are replies with `isError`.
 - `execResultOutput`: an `Output` for a tool whose answer is an
-  `ExecResult`.
+  `is_effects` `ExecResult`: how it ended (`exit 0`, or `killed: why`) and
+  its stdout and stderr, both always shown. Exit 0 is not a measurement.
 
-The library imports `is_airlock_api` and `is_tools_api`, and no runner,
-client or effect; a test reads every directive's URI from Dart's parse tree
-and holds it to that.
+The library imports `is_airlock_api`, `is_effects` and `is_tools_api`, and no
+runner, client or effect; a test reads every directive's URI from Dart's
+parse tree and holds it to that.

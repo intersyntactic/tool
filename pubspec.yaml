@@ -11,6 +11,7 @@ environment:
 
 dependencies:
   is_airlock_api: ^0.2.0
+  is_effects: ^0.1.0
   is_tools_api: ^0.2.1
 
 dev_dependencies:

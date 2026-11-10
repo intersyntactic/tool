@@ -1,4 +1,5 @@
 import 'package:is_airlock_api/is_airlock_api.dart';
+import 'package:is_effects/is_effects.dart';
 import 'package:is_tools_api/is_tools_api.dart';
 
 /// How a tool's calls are answered, here: its definition, and what it does
@@ -64,7 +65,24 @@ extension AnsweredBy<I, O> on ToolSpec<I, O> {
       Answer._(this, does);
 }
 
-/// [ExecResult.forModel], as a definition renders an [ExecResult] answer.
+/// An [ExecResult] as the model is told it, for a definition whose answer is
+/// one.
+///
+/// stderr is INCLUDED even on success, and how it ended is always stated. A
+/// command that printed a warning and succeeded, and one that printed the
+/// same text and failed, are different events; a transcript that shows only
+/// stdout makes them identical. Exit 0 is not a measurement.
 const execResultOutput = Output<ExecResult>(_execForModel);
 
-String _execForModel(ExecResult result) => result.forModel;
+String _execForModel(ExecResult result) {
+  final b = StringBuffer(switch (result) {
+    Exited(:final exitCode) => 'exit $exitCode',
+    Killed(:final why) => 'killed: $why; no exit code',
+  });
+  final anyOut = result.stdout.trim().isNotEmpty;
+  final anyErr = result.stderr.trim().isNotEmpty;
+  if (anyOut) b.write('\n--- stdout ---\n${result.stdout.trimRight()}');
+  if (anyErr) b.write('\n--- stderr ---\n${result.stderr.trimRight()}');
+  if (!anyOut && !anyErr) b.write(' (no output)');
+  return b.toString();
+}
