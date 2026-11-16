@@ -26,7 +26,7 @@ final writeAndFormat = ToolSpec<FileText, ExecResult>(
   ),
 );
 
-final reply = await writeAndFormat.reply(input, journeyPath);
+final reply = await writeAndFormat.reply(input, apex);
 // reply.forModel, reply.isError: the call's tool result.
 ```
 
@@ -34,10 +34,10 @@ final reply = await writeAndFormat.reply(input, journeyPath);
   and returns the runs it takes and the answer they lead to, an
   `is_airlock_api` `Result<O>`; it touches nothing. It must take the
   definition's `I` and end in its `O`, or it does not compile.
-- `answer.reply(json, journeyPath)`: reads the input with the definition,
-  follows each run on the journey path, where the airlock decides and
-  records it, and renders `Done` with the definition's `Output`. An input
-  the definition refuses, and a `Failed`, are replies with `isError`.
+- `answer.reply(json, apex)`: reads the input with the definition, follows
+  each run at the apex, where the airlock decides and records it, and
+  renders `Done` with the definition's `Output`. An input the definition
+  refuses, and a `Failed`, are replies with `isError`.
 - `execResultOutput`: an `Output` for a tool whose answer is an
   `is_effects` `ExecResult`: how it ended (`exit 0`, or `killed: why`) and
   its stdout and stderr, both always shown. Exit 0 is not a measurement.

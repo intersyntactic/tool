@@ -18,8 +18,7 @@ final class Answer<I, O> {
   final ToolSpec<I, O> spec;
   final Result<O> Function(I input) _does;
 
-  /// A call taking [input], followed on [journeyPath] to what the model is
-  /// told.
+  /// A call taking [input], followed on [apex] to what the model is told.
   ///
   /// Here, where [I] and [O] are known, so whoever holds an answer of
   /// unknown types never handles its input or output. An input the
@@ -27,7 +26,7 @@ final class Answer<I, O> {
   /// for it.
   Future<Reply> reply(
     JsonObject input,
-    JourneyPath<Object?> journeyPath,
+    Apex apex,
   ) async {
     final I read;
     try {
@@ -43,7 +42,7 @@ final class Answer<I, O> {
         case Failed(:final why):
           return Reply._(why, isError: true);
         case Run():
-          result = await result.next(journeyPath);
+          result = await result.next(apex);
       }
     }
   }
