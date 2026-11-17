@@ -26,16 +26,16 @@ final writeAndFormat = ToolSpec<FileText, ExecResult>(
   ),
 );
 
-final response = await writeAndFormat.reply(input, apex);
+final response = await writeAndFormat.reply(input, crux);
 // response.forModel, response.isError: the call's tool result.
 ```
 
 - `spec.handledBy(does)`: a `ToolHandler<I, O>`. `does` is given a call's
-  input and returns the runs it takes and the answer they lead to, an
+  input and returns the actions it takes and the answer they lead to, an
   `is_airlock_api` `Result<O>`; it touches nothing. It must take the
   definition's `I` and end in its `O`, or it does not compile.
-- `handler.reply(json, apex)`: reads the input with the definition, follows
-  each run at the apex, where the airlock decides and records it, and
+- `handler.reply(json, crux)`: reads the input with the definition, runs
+  each action through the crux, where the airlock decides and records it, and
   renders `Done` with the definition's `Output`. An input the definition
   refuses, and a `Failed`, become a `ToolResponse` with `isError`.
 - `execResultOutput`: an `Output` for a tool whose answer is an

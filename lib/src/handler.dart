@@ -17,7 +17,7 @@ final class ToolHandler<I, O> {
   final ToolSpec<I, O> spec;
   final Result<O> Function(I input) _does;
 
-  /// A call taking [input], followed on [apex] to what the model is told.
+  /// A call taking [input], run through at [crux] to what the model is told.
   ///
   /// Here, where [I] and [O] are known, so whoever holds a handler of
   /// unknown types never handles its input or output. An input the
@@ -25,7 +25,7 @@ final class ToolHandler<I, O> {
   /// for it.
   Future<ToolResponse> reply(
     JsonObject input,
-    Apex apex,
+    Crux crux,
   ) async {
     final I read;
     try {
@@ -40,8 +40,8 @@ final class ToolHandler<I, O> {
           return ToolResponse._(spec.output.forModel(value), isError: false);
         case Failed(:final why):
           return ToolResponse._(why, isError: true);
-        case Run():
-          result = await result.next(apex);
+        case Action():
+          result = await result.next(crux);
       }
     }
   }
@@ -57,7 +57,7 @@ final class ToolResponse {
 }
 
 extension HandledBy<I, O> on ToolSpec<I, O> {
-  /// This definition, handled by [does]: given a call's input, the runs it
+  /// This definition, handled by [does]: given a call's input, the actions it
   /// takes and the answer they lead to.
   ToolHandler<I, O> handledBy(Result<O> Function(I input) does) =>
       ToolHandler._(this, does);
