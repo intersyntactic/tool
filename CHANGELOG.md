@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.1
+
+- Depends on `is_airlock_api` ^0.11.0 and `is_effects` ^0.9.0. No API
+  change: is_tool uses none of the names those releases changed.
+
 ## 0.2.0
 
 Breaking. Brought up to `is_airlock_api` 0.9.0.
