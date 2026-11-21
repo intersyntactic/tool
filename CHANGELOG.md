@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.0
+
+- Depends on `is_airlock_api` `^0.14.0`. No code change.
+
 ## 0.3.0
 
 - Depends on `is_airlock_api` `^0.13.1` and `is_effects` `^0.12.0`. No
