@@ -2,9 +2,8 @@
 
 What an intersyntactic tool does when it is called. A tool is its
 `is_tools_api` definition: what the model sees, what a call takes and what
-it returns. It does not carry what it does: each host handles the
-definitions it offers, so one tool can be handled one way on a laptop and
-another on a phone.
+it returns. It does not carry what it does: that is passed to `handledBy`,
+so one definition can be handled differently in different programs.
 
 ```dart
 final dart = Executable.parse('dart')!;

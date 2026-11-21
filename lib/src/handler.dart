@@ -2,11 +2,11 @@ import 'package:is_airlock_api/is_airlock_api.dart';
 import 'package:is_effects/is_effects.dart';
 import 'package:is_tools_api/is_tools_api.dart';
 
-/// A definition, and how this host carries out a call to it.
+/// A definition, and how a call to it is carried out.
 ///
-/// A tool is its definition, and does not carry what it does: each host
-/// handles the definitions it offers, so one tool can be handled one way on
-/// a laptop and another on a phone.
+/// A tool is its definition, and does not carry what it does: that is
+/// passed to [HandledBy.handledBy], so one definition can be handled
+/// differently in different programs.
 ///
 /// Made only by [HandledBy.handledBy], so what it does takes the
 /// definition's [I] and ends in its [O]: a handler that gives a `String` for
