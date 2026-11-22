@@ -34,9 +34,10 @@ final response = await writeAndFormat.reply(input, crux);
   `is_airlock_api` `Result<O>`; it touches nothing. It must take the
   definition's `I` and end in its `O`, or it does not compile.
 - `handler.reply(json, crux)`: reads the input with the definition, runs
-  each action through the crux, where the airlock decides and records it, and
-  renders `Done` with the definition's `Output`. An input the definition
-  refuses, and a `Failed`, become a `ToolResponse` with `isError`.
+  each action through the crux, where the airlock decides it and writes it to
+  the logbook, and renders `Done` with the definition's `Output`. An input
+  the definition refuses, and a `Failed`, become a `ToolResponse` with
+  `isError`.
 - `execResultOutput`: an `Output` for a tool whose answer is an
   `is_effects` `ExecResult`: how it ended (`exit 0`, or `killed: why`) and
   its stdout and stderr, both always shown. Exit 0 is not a measurement.

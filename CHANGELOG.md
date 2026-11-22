@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.0
+
+- Depends on `is_airlock_api` `^0.15.0`. No code change.
+- Docs say "the logbook" for what the airlock writes, as 0.15.0 does, and
+  no longer say "host".
+
 ## 0.4.0
 
 - Depends on `is_airlock_api` `^0.14.0`. No code change.

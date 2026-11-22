@@ -3,14 +3,14 @@ description: >-
   What an intersyntactic tool does when it is called: an is_tools_api
   definition handled by actions the airlock decides, and a call run
   through to what the model is told.
-version: 0.4.0
+version: 0.5.0
 repository: https://github.com/intersyntactic/tool
 
 environment:
   sdk: ^3.13.0
 
 dependencies:
-  is_airlock_api: ^0.14.0
+  is_airlock_api: ^0.15.0
   is_effects: ^0.12.0
   is_tools_api: ^0.2.1
 
