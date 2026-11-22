@@ -14,7 +14,7 @@ final writeAndFormat = ToolSpec<FileText, ExecResult>(
   input: Input.fields2(
     Field('path', Schema.string()),
     Field('text', Schema.string()),
-    (String path, String text) => FileText(PathInRepo.parse(path)!, text),
+    (String path, String text) => FileText(RelativePath(path), text),
   ),
   output: execResultOutput,
 ).handledBy(
