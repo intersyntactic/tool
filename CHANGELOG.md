@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.7.0
+
+- Depends on `is_tools_api` `^0.3.0`. No code change.
+- The README example is compiled: it lives in `example/is_tool_example.dart`,
+  and a test holds the README's copy to it.
+
 ## 0.6.0
 
 - Depends on `is_airlock_api` `^0.17.0` and `is_effects` `^0.14.1`. No
