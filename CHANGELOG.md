@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.5.0
+
+- Depends on `is_airlock_api` `^0.16.0` and `is_effects` `^0.13.0`. No
+  code change.
+- Docs say "the logbook" for what the airlock writes, and no longer say
+  "host". The README example builds again: `RelativePath` in place of
+  `PathInRepo`.
+
 ## 0.4.0
 
 - Depends on `is_airlock_api` `^0.14.0`. No code change.
