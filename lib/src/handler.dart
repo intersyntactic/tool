@@ -23,10 +23,7 @@ final class ToolHandler<I, O> {
   /// unknown types never handles its input or output. An input the
   /// definition does not accept is an error naming the field; nothing is run
   /// for it.
-  Future<ToolResponse> reply(
-    JsonObject input,
-    Crux crux,
-  ) async {
+  Future<ToolResponse> reply(JsonObject input, Crux crux) async {
     final I read;
     try {
       read = spec.input.read(input);
