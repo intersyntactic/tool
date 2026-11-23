@@ -8,22 +8,25 @@ so one definition can be handled differently in different programs.
 ```dart
 final dart = Executable.parse('dart')!;
 
-final writeAndFormat = ToolSpec<FileText, ExecResult>(
-  name: 'write_and_format',
-  description: 'Writes a Dart file, then formats it.',
-  input: Input.fields2(
-    Field('path', Schema.string()),
-    Field('text', Schema.string()),
-    (String path, String text) => FileText(RelativePath(path), text),
-  ),
-  output: execResultOutput,
-).handledBy(
-  (file) => Program.write.runOrRefusal(
-    file,
-    then: (wrote) =>
-        dart.runOrRefusal(Args(['format', file.path.value]), then: Done.new),
-  ),
-);
+final writeAndFormat =
+    ToolSpec<FileText, ExecResult>(
+      name: 'write_and_format',
+      description: 'Writes a Dart file, then formats it.',
+      input: Input.fields2(
+        Field('path', Schema.string()),
+        Field('text', Schema.string()),
+        (String path, String text) => FileText(RelativePath(path), text),
+      ),
+      output: execResultOutput,
+    ).handledBy(
+      (file) => Program.write.runOrRefusal(
+        file,
+        then: (wrote) => dart.runOrRefusal(
+          Args(['format', file.path.value]),
+          then: Done.new,
+        ),
+      ),
+    );
 
 final response = await writeAndFormat.reply(input, crux);
 // response.forModel, response.isError: the call's tool result.
