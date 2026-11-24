@@ -13,7 +13,7 @@ Future<ToolResponse> writeAndFormatReply(JsonObject input, Crux crux) async {
 
   final writeAndFormat =
       ToolSpec<FileText, ExecResult>(
-        name: 'write_and_format',
+        name: ToolName.of('write_and_format'),
         description: 'Writes a Dart file, then formats it.',
         input: Input.fields2(
           Field('path', Schema.string()),
