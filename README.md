@@ -19,12 +19,10 @@ final writeAndFormat =
       ),
       output: execResultOutput,
     ).handledBy(
-      (file) => Program.write.runOrRefusal(
+      (file) => Program.write.runOrFail(
         file,
-        then: (wrote) => dart.runOrRefusal(
-          Args(['format', file.path.value]),
-          then: Done.new,
-        ),
+        then: (wrote) =>
+            dart.runOrFail(Args(['format', file.path.value]), then: Done.new),
       ),
     );
 
