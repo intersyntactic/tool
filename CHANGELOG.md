@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.9.0
+
+- Depends on `is_airlock_api` `^0.18.0` and `is_effects` `^0.15.0`. No code
+  change in `lib`.
+- The README example uses `runOrFail`, `runOrRefusal`'s new name. A program
+  that stopped partway now reaches the model as an error starting
+  `stopped partway:`, unlike one where nothing ran.
+
 ## 0.8.0
 
 - Depends on `is_tools_api` `^0.4.0`. No code change.
