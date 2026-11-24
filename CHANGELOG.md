@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.8.0
+
+- Depends on `is_tools_api` `^0.4.0`. No code change.
+
 ## 0.7.0
 
 - Depends on `is_tools_api` `^0.3.0`. No code change.
