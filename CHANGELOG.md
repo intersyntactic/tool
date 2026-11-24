@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.10.0
+
+- Depends on `is_tools_api` `^0.5.0`. No code change in `lib`.
+- The README example names its tool with `ToolName.of('write_and_format')`,
+  since `ToolSpec.name` is now a `ToolName`.
+
 ## 0.9.0
 
 - Depends on `is_airlock_api` `^0.18.0` and `is_effects` `^0.15.0`. No code
