@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.11.0
+
+- Depends on `is_airlock_api` `^0.21.0` and `is_effects` `^0.17.0`.
+- `ToolHandler.reply` takes a `ProposesActions`, `Crux`'s new name: an
+  interface with one method, so a test can pass a fake.
+
 ## 0.10.0
 
 - Depends on `is_tools_api` `^0.5.0`. No code change in `lib`.

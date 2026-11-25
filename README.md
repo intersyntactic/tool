@@ -26,7 +26,7 @@ final writeAndFormat =
       ),
     );
 
-final response = await writeAndFormat.reply(input, crux);
+final response = await writeAndFormat.reply(input, proposer);
 // response.forModel, response.isError: the call's tool result.
 ```
 
@@ -34,9 +34,11 @@ final response = await writeAndFormat.reply(input, crux);
   input and returns the actions it takes and the answer they lead to, an
   `is_airlock_api` `Result<O>`; it touches nothing. It must take the
   definition's `I` and end in its `O`, or it does not compile.
-- `handler.reply(json, crux)`: reads the input with the definition, runs
-  each action through the crux, where the airlock decides it and writes it to
-  the logbook, and renders `Done` with the definition's `Output`. An input
+- `handler.reply(json, proposer)`: reads the input with the definition,
+  proposes each action through `proposer`, an `is_airlock_api`
+  `ProposesActions` (in a trajectory, the airlock decides each and writes it
+  to the logbook; in a test, a fake with one method), and renders `Done`
+  with the definition's `Output`. An input
   the definition refuses, and a `Failed`, become a `ToolResponse` with
   `isError`.
 - `execResultOutput`: an `Output` for a tool whose answer is an

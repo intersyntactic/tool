@@ -17,13 +17,14 @@ final class ToolHandler<I, O> {
   final ToolSpec<I, O> spec;
   final Result<O> Function(I input) _does;
 
-  /// A call taking [input], run through at [crux] to what the model is told.
+  /// A call taking [input], each action proposed through [proposer], run
+  /// through to what the model is told.
   ///
   /// Here, where [I] and [O] are known, so whoever holds a handler of
   /// unknown types never handles its input or output. An input the
   /// definition does not accept is an error naming the field; nothing is run
   /// for it.
-  Future<ToolResponse> reply(JsonObject input, Crux crux) async {
+  Future<ToolResponse> reply(JsonObject input, ProposesActions proposer) async {
     final I read;
     try {
       read = spec.input.read(input);
@@ -38,7 +39,7 @@ final class ToolHandler<I, O> {
         case Failed(:final why):
           return ToolResponse._(why, isError: true);
         case Action():
-          result = await result.next(crux);
+          result = await result.next(proposer);
       }
     }
   }
