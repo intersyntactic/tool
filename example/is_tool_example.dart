@@ -7,7 +7,10 @@ import 'package:is_tools_api/is_tools_api.dart';
 ///
 /// The body between the markers is the README's ```dart block, line for
 /// line; test/readme_example_test.dart holds the two together.
-Future<ToolResponse> writeAndFormatReply(JsonObject input, Crux crux) async {
+Future<ToolResponse> writeAndFormatReply(
+  JsonObject input,
+  ProposesActions proposer,
+) async {
   // readme-example-start
   final dart = Executable.parse('dart')!;
 
@@ -29,7 +32,7 @@ Future<ToolResponse> writeAndFormatReply(JsonObject input, Crux crux) async {
         ),
       );
 
-  final response = await writeAndFormat.reply(input, crux);
+  final response = await writeAndFormat.reply(input, proposer);
   // response.forModel, response.isError: the call's tool result.
   // readme-example-end
   return response;
