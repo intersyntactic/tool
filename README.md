@@ -1,8 +1,8 @@
 # is_tool
 
 What an intersyntactic tool does when it is called. A tool is its
-`is_tools_api` definition: what the model sees, what a call takes and what
-it returns. It does not carry what it does: that is passed to `handledBy`,
+definition from `is_tool_definition_vocabulary`: what the model sees, what a
+call takes and what it returns. It does not carry what it does: that is passed to `handledBy`,
 so one definition can be handled differently in different programs.
 
 ```dart
@@ -45,6 +45,6 @@ final response = await writeAndFormat.reply(input, proposer);
   `is_effects` `ExecResult`: how it ended (`exit 0`, or `killed: why`) and
   its stdout and stderr, both always shown. Exit 0 is not a measurement.
 
-The library imports `is_airlock_api`, `is_effects` and `is_tools_api`, and no
-runner, client or effect; a test reads every directive's URI from Dart's
-parse tree and holds it to that.
+The library imports `is_airlock_api`, `is_effects` and
+`is_tool_definition_vocabulary`, and no runner, client or effect; a test
+reads every directive's URI from Dart's parse tree and holds it to that.

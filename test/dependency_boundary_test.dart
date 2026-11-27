@@ -43,7 +43,7 @@ bool _allowed(String target) {
     'package' => const {
       'is_airlock_api',
       'is_effects',
-      'is_tools_api',
+      'is_tool_definition_vocabulary',
     }.contains(uri.pathSegments.first),
     '' => !uri.isAbsolute && !uri.pathSegments.contains('..'),
     _ => false,

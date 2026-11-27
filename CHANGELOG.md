@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.13.0
+
+- Depends on `is_tool_definition_vocabulary` `^0.6.0`, the renamed
+  `is_tools_api` (same types), in place of `is_tools_api`. Import
+  `package:is_tool_definition_vocabulary/is_tool_definition_vocabulary.dart`.
+- Depends on `is_airlock_api` `^0.24.0` and `is_effects` `^0.18.0`, so on
+  `checked_json` `^0.3.0`. No code change in `lib`.
+
 ## 0.12.0
 
 - Depends on `is_airlock_api` `^0.22.0`. No code change.
