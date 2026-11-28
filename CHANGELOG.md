@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.14.0
+
+- Depends on `is_tool_definition_vocabulary` `^0.7.0`, `is_airlock_api`
+  `^0.25.0` and `is_effects` `^0.19.0`, so on `checked_json` `^0.4.0`:
+  the `JsonObject` that `ToolHandler.reply` takes is now one nothing can
+  change. No code change in `lib`.
+
 ## 0.13.0
 
 - Depends on `is_tool_definition_vocabulary` `^0.6.0`, the renamed
