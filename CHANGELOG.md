@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.15.0
+
+- No longer depends on `is_effects`, which is split into vocabularies.
+  `ExecResult` comes from `is_program_request_vocabulary` `^0.1.0`, with
+  the same JSON; import it from there. The example's `FileText` and
+  `RelativePath` come from `is_file_request_vocabulary` and
+  `is_relative_path_vocabulary`.
+- Depends on `is_airlock_api` `^0.26.0` and `is_tool_definition_vocabulary`
+  `^0.8.0`, so on `is_model_vocabulary` `^0.5.0`. No other code change in
+  `lib`.
+
 ## 0.14.0
 
 - Depends on `is_tool_definition_vocabulary` `^0.7.0`, `is_airlock_api`

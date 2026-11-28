@@ -1,5 +1,5 @@
 import 'package:is_airlock_api/is_airlock_api.dart';
-import 'package:is_effects/is_effects.dart';
+import 'package:is_program_request_vocabulary/is_program_request_vocabulary.dart';
 import 'package:is_tool_definition_vocabulary/is_tool_definition_vocabulary.dart';
 
 /// A definition, and how a call to it is carried out.

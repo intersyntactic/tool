@@ -42,7 +42,7 @@ bool _allowed(String target) {
     'dart' => _allowedSdk.contains(target),
     'package' => const {
       'is_airlock_api',
-      'is_effects',
+      'is_program_request_vocabulary',
       'is_tool_definition_vocabulary',
     }.contains(uri.pathSegments.first),
     '' => !uri.isAbsolute && !uri.pathSegments.contains('..'),
