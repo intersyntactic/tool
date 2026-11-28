@@ -1,7 +1,7 @@
 import 'package:is_airlock_api/is_airlock_api.dart';
 import 'package:is_effects/is_effects.dart';
 import 'package:is_tool/is_tool.dart';
-import 'package:is_tools_api/is_tools_api.dart';
+import 'package:is_tool_definition_vocabulary/is_tool_definition_vocabulary.dart';
 
 /// The README's example, as a function so analysis compiles it.
 ///

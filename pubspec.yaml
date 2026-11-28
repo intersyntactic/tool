@@ -1,18 +1,18 @@
 name: is_tool
 description: >-
-  What an intersyntactic tool does when it is called: an is_tools_api
-  definition handled by actions the airlock decides, and a call run
-  through to what the model is told.
-version: 0.12.0
+  What an intersyntactic tool does when it is called: a tool definition
+  from is_tool_definition_vocabulary handled by actions the airlock
+  decides, and a call run through to what the model is told.
+version: 0.13.0
 repository: https://github.com/intersyntactic/tool
 
 environment:
   sdk: ^3.13.0
 
 dependencies:
-  is_airlock_api: ^0.22.0
-  is_effects: ^0.17.0
-  is_tools_api: ^0.5.0
+  is_airlock_api: ^0.24.0
+  is_effects: ^0.18.0
+  is_tool_definition_vocabulary: ^0.6.0
 
 dev_dependencies:
   analyzer: ^14.7.0
