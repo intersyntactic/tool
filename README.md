@@ -42,9 +42,10 @@ final response = await writeAndFormat.reply(input, proposer);
   the definition refuses, and a `Failed`, become a `ToolResponse` with
   `isError`.
 - `execResultOutput`: an `Output` for a tool whose answer is an
-  `is_effects` `ExecResult`: how it ended (`exit 0`, or `killed: why`) and
-  its stdout and stderr, both always shown. Exit 0 is not a measurement.
+  `is_program_request_vocabulary` `ExecResult`: how it ended (`exit 0`, or
+  `killed: why`) and its stdout and stderr, both always shown. Exit 0 is
+  not a measurement.
 
-The library imports `is_airlock_api`, `is_effects` and
+The library imports `is_airlock_api`, `is_program_request_vocabulary` and
 `is_tool_definition_vocabulary`, and no runner, client or effect; a test
 reads every directive's URI from Dart's parse tree and holds it to that.
